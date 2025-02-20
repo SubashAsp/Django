@@ -14,3 +14,8 @@ class Book(models.Model):
 	title = models.CharField(max_length=100, null=True)
 	author = models.CharField(max_length=100, null=True)
 	published_date = models.DateField()
+
+
+class Movies(models.Model):
+	name = models.CharField(max_length = 200, null=False)
+	director = models.CharField(max_length = 200, null=False)
