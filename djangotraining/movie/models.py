@@ -7,7 +7,7 @@ class Movie(models.Model):
     rating = models.FloatField()
 
 class Show(models.Model):
-    movie = models.CharField(Movie, on_delete=models.CASCADE)
+    movie = models.CharField(max_length=100, null=False)
     time = models.TimeField()
     price = models.FloatField()
 

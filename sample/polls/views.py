@@ -17,8 +17,15 @@ class BookListCreateAPIView(generics.ListCreateAPIView):
 	serializer = BookSerializer
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def movie_list(request):
-	movies = Movies.objects.all()
-	serializer = MovieSerializer(movies, many=True)
-	return Response(serializer.data)
+		if request.method == 'GET':
+			movies = Movies.objects.all()
+			serializer = MovieSerializer(movies, many=True)
+			return Response(serializer.data)
+		elif request.method == 'POST':
+			serializer = MovieSerializer(data=request.data)
+			if serializer.is_valid():
+				serializer.save()
+				return Response(serializer.data)
+			return Response(serializer.errors)
