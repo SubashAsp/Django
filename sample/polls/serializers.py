@@ -66,7 +66,12 @@ class SongSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Song
-		fields = ['id', 'name', 'singer']
+		fields = ['id', 'title', 'singer']
 
 	def create(self, validated_data):
-		
+		singer_data = validated_data.pop('singer')
+		singer, _ = Singer.objects.get_or_create(**singer_data)
+		song = Song.objects.create(singer=singer, **validated_data)
+		return song
+
+

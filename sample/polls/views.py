@@ -142,3 +142,11 @@ class SchoolDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.De
 	
 	def delete(self, request, *args, **kwargs):
 		return self.destroy(request, *args, **kwargs)
+
+class SingerList(generics.ListCreateAPIView):
+	queryset = Singer.objects.all()
+	serializer_class = SingerSerializer
+
+class SongList(generics.ListCreateAPIView):
+	queryset = Song.objects.all()
+	serializer_class = SongSerializer

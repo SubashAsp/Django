@@ -3,9 +3,9 @@ from .views import *
 
 urlpatterns = [
     path("index/", index, name="index"),
-    
+ 
     path('books/', BookList.as_view(), name='book-list-create'),
-    
+
     path('movies/', movie_list, name='movie-list'),
     path('movies/<int:pk>/', movie_detail, name='movie-detail'),
 
@@ -16,7 +16,10 @@ urlpatterns = [
 
     path('colleges/', ColllegeList.as_view(), name='college-list'),
     path('colleges/<int:pk>/', CollegeDetail.as_view(), name='college-detail'),
-    
+
     path('schools/', SchoolList.as_view(), name='school-list'),
     path('schools/<int:pk>/', SchoolDetail.as_view(), name='school-detail'),
+
+    path('singers/', SingerList.as_view(), name='singer-list'),
+    path('songs/', SongList.as_view(), name='song-list'),
 ]
