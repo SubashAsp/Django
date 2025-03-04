@@ -64,3 +64,7 @@ class Song(models.Model):
 
      def __str__(self):
           return self.title
+     
+class Name(models.Model):
+     name = models.CharField(max_length=50, null=False)
+     age = models.IntegerField()

@@ -75,3 +75,7 @@ class SongSerializer(serializers.ModelSerializer):
 		return song
 
 
+class NameSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Name
+		fields = '__all__'

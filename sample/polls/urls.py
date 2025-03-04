@@ -22,4 +22,9 @@ urlpatterns = [
 
     path('singers/', SingerList.as_view(), name='singer-list'),
     path('songs/', SongList.as_view(), name='song-list'),
+
+    path('name/', NameList.as_view(), name='name-list'),
+    path('name/<int:pk>', NameDetail.as_view(), name='name-detail'),
+    path('product/', product, name='product'),
+
 ]

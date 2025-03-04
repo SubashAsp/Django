@@ -1,7 +1,7 @@
 from rest_framework import generics, status, mixins
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from .models import *
 from .serializers import *
@@ -150,3 +150,14 @@ class SingerList(generics.ListCreateAPIView):
 class SongList(generics.ListCreateAPIView):
 	queryset = Song.objects.all()
 	serializer_class = SongSerializer
+
+class NameList(generics.ListCreateAPIView):
+	queryset = Name.objects.all()
+	serializer_class = NameSerializer
+
+class NameDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Name.objects.all()
+	serializer_class = NameSerializer
+
+def product(request):
+	return render(request,"index.html")
