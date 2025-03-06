@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome, {{ user }}!!!!!</h1>
+<ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+{# Using Filter #}
+{# String Manipulation / String filters #}
+<p>Title case: {{ user | title }}</p>
+<p>CapFirst: {{ user | capfirst }}</p>
+<p>Upper: {{ user | upper }}</p>
+<p>Lower: {{ user | lower }}</p>
+<p>Length: {{ user | length }}</p>
+<p>Slice: {{ user | slice:":3" }}</p>
+<p>TruncateChar: {{ user | truncatechars:4 }}</p>
+<p>TruncateWords: {{ user | truncatewords:1 }}</p>
+<p>Wordcount: {{ user | wordcount }}</p>
+<p>Default: {{ usern | default:"Unknown User" }}</p>
+<p>Default_if_none: {{ user | default_if_none:"Unknown User" }}</p>
+{% with text="Subash" %}
+    <p>Center: "{{ text | center:20 }}"</p>
+{% endwith %}
+<p>Remove_Spaces(Cut): {{ user | cut:" " }}</p>
+
+<br><br>
+<h3>List filters</h3>
+{# List and array filters #}
+<p>Join: {{ items | join:"," }}</p>
+<p>Length: {{ items | length }}</p>
+<p>Random: {{ items | random }}</p>
+<p>First_item: {{ items | first }}</p>
+<p>Last_item: {{ items | last }}</p>
+<p>Slice: {{ items | slice:"1:3" }}</p>
+{% endblock %}

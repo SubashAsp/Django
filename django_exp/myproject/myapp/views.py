@@ -12,8 +12,12 @@ class NameList(generics.ListCreateAPIView):
 	queryset = Name.objects.all()
 	serializer_class = NameSerializer
 
-def product(request):
-	return render(request, "index.html")
+def index(request):
+	return render(request, "index.html", {'name':"Karthi"})
 
 def signup(request):
 	return render(request, 'signup.html')
+
+def home(request):
+	context = {"user": "subash thiru", "items": ['Python', 'Django', 'Template', 'Filters', 'Language']}
+	return render(request, 'home.html', context)
