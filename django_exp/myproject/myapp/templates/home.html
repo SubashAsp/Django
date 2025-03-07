@@ -60,4 +60,16 @@
     {% endif %}
 {% endfor %}
 
+<p>{{ 3.14159|floatformat:2 }}</p>
+
+<p>Fixed decimal: {{ 25.5|floatformat:3 }}</p>
+
+<p>Whole number: {{ 10.000000|floatformat:-1 }}</p>
+
+<p>Date: {{ date|date:"Y-m-d" }}</p>
+
+<p>Date: {{ date|date:"Y-F-d" }}</p>
+
+<p>Date: {{ date|date:"y-M-l" }}</p>
+
 {% endblock %}
