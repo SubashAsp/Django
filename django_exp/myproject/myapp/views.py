@@ -19,5 +19,5 @@ def signup(request):
 	return render(request, 'signup.html')
 
 def home(request):
-	context = {"user": "subash thiru", "items": ['Python', 'Django', 'Template', 'Filters', 'Language']}
+	context = {"user": "subash thiru", "items": ['Python', 'Django', 'Template', 'Filters', 'Language'], 'current_year':2025, 'numbers':[1, 2, 3, 4, 5], 'number':7}
 	return render(request, 'home.html', context)

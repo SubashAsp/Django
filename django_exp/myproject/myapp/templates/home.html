@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load custom_filter %}
 {% block content %}
 <h1>Welcome, {{ user }}!!!!!</h1>
 <ul>
@@ -33,4 +34,30 @@
 <p>First_item: {{ items | first }}</p>
 <p>Last_item: {{ items | last }}</p>
 <p>Slice: {{ items | slice:"1:3" }}</p>
+<br><br>
+
+<h3>Numerical Filters</h3>
+<p>Next year will be {{ current_year | add:1 }}</p>
+{% for number in numbers %}
+    <p>Number + 10 = {{ number | add:10 }}</p>
+{% endfor %}
+
+{% for item in items %}
+    <p>Item {{ forloop.counter | add:1 }}: {{ item }}</p>
+{% endfor %}
+
+{% if number|divisibleby:2 %}
+    <p>{{number}} is even.</p>
+{% else %}
+    <p>{{number}} is odd.</p>
+{% endif %}
+
+{% for item in items %}
+    {% if forloop.counter|divisibleby:3 %}
+        <p><strong>{{item}}</strong></p>
+    {% else %}
+        <p>{{ item }}</p>
+    {% endif %}
+{% endfor %}
+
 {% endblock %}
