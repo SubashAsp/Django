@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load custom_filter %}
+
 {% block content %}
 <h1>Welcome, {{ user }}!!!!!</h1>
 <ul>
@@ -22,8 +23,8 @@
 <p>Default_if_none: {{ user | default_if_none:"Unknown User" }}</p>
 {% with text="Subash" %}
     <p>Center: "{{ text | center:20 }}"</p>
-{% endwith %}
-<p>Remove_Spaces(Cut): {{ user | cut:" " }}</p>
+{% endwith %} 
+<p>Remove_Spaces(Cut): {{ user | cut:" " }}</p> 
 
 <br><br>
 <h3>List filters</h3>
@@ -34,7 +35,13 @@
 <p>First_item: {{ items | first }}</p>
 <p>Last_item: {{ items | last }}</p>
 <p>Slice: {{ items | slice:"1:3" }}</p>
-<br><br>
+
+<p>Sorted by age</p>
+{% for person in people|dictsort:"age" %}
+    <p>{{ person.name }} - {{ person.age }}</p>
+{% endfor %}
+
+<br>
 
 <h3>Numerical Filters</h3>
 <p>Next year will be {{ current_year | add:1 }}</p>
