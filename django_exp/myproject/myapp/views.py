@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Name
 from .serializers import NameSerializer
 from rest_framework import generics
+from .forms import *
 
 # Create your views here.
 def message(request):
@@ -36,3 +37,28 @@ def filter(request):
     	{"name": "Logu", "age": 28}]}
 	
 	return render(request, 'filters.html', context)
+
+def contact_view(request):
+	if request.method == "POST":
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			name = form.cleaned_data['name']
+			email = form.cleaned_data['email']
+			message = form.cleaned_data['message']
+			print(f'Message from {name} ({email}): {message}')
+			return render(request, 'thankyou.html')
+	else:
+		form = ContactForm()
+		return render(request, 'form.html', { 'form': form })
+	
+def signup_view(request):
+	if request.method == "POST":
+		form = SignupForm(request.POST)
+		if form.is_valid():
+			user = form.save(commit=False)
+			user.set_password(form.cleaned_data['password'])
+			user.save()
+			return redirect('home')
+	else:
+		form = SignupForm()
+	return render(request, 'signin.html', {'form': form})

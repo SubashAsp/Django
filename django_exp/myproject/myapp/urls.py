@@ -10,7 +10,9 @@ urlpatterns = [
     path('index/', index, name='product'),
     path('home/', home, name='home'),
     path('signup/', signup, name='signup'),
-    path('filters/', filter, name='filter')
+    path('filters/', filter, name='filter'),
+    path('contact/', contact_view, name= 'contact'),
+    path('signups/', signup_view, name='signup')
 ]
 
 if settings.DEBUG:
