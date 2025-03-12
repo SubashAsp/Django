@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Name
 from .serializers import NameSerializer
 from rest_framework import generics
+from django.contrib.auth import get_user_model
 from .forms import *
 
 # Create your views here.
@@ -51,6 +52,8 @@ def contact_view(request):
 		form = ContactForm()
 		return render(request, 'form.html', { 'form': form })
 	
+user = get_user_model()
+
 def signup_view(request):
 	if request.method == "POST":
 		form = SignupForm(request.POST)
