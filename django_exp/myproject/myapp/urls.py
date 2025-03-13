@@ -12,7 +12,8 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('filters/', filter, name='filter'),
     path('contact/', contact_view, name= 'contact'),
-    path('signups/', signup_view, name='signup')
+    path('signups/', signup_view, name='signup'),
+    path('products/', product_view, name="product-view"),
 ]
 
 if settings.DEBUG:

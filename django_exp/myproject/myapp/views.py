@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Name
-from .serializers import NameSerializer
+from .models import *
+from .serializers import *
 from rest_framework import generics
 from django.contrib.auth import get_user_model
 from .forms import *
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # Create your views here.
 def message(request):
@@ -65,3 +67,17 @@ def signup_view(request):
 	else:
 		form = SignupForm()
 	return render(request, 'signin.html', {'form': form})
+
+@api_view(["GET", "POST"])
+def product_view(request):
+	if request.method == "GET":
+		products = Product.objects.all()
+		serializer = ProductSerializer(products, many=True)
+		return Response(serializer.data)
+	
+	elif request.method == "POST":
+		serializer = ProductSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save()
+			return Response(serializer.data)
+		return Response(serializer.errors)
