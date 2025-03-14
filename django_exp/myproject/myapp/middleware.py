@@ -24,4 +24,5 @@ class ExecutionTimeMiddleware:
         end_time = time.time()
         execution_time = end_time-start_time
         print(f"Execution Time: {execution_time:.5f} seconds")
+        print("")
         return response

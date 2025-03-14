@@ -14,6 +14,9 @@ urlpatterns = [
     path('contact/', contact_view, name= 'contact'),
     path('signups/', signup_view, name='signup'),
     path('products/', product_view, name="product-view"),
+    path('metainfo/', meta_info, name='meta-info'),
+    path('search/', product_search, name='product-search'),
+    path('create/', product_create, name='product-create'),
 ]
 
 if settings.DEBUG:

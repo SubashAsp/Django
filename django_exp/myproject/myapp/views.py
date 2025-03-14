@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .models import *
 from .serializers import *
 from rest_framework import generics
@@ -81,3 +81,45 @@ def product_view(request):
 			serializer.save()
 			return Response(serializer.data)
 		return Response(serializer.errors)
+
+
+@api_view(["GET"])
+def product_search(request):
+	product_id=request.GET.get("id", None)
+	if product_id is not None:
+		product=Product.objects.filter(id=product_id)
+	else:
+		return Response({"Product Id is required"})
+	
+	serializer=ProductSerializer(product, many=True)
+	return Response(serializer.data)
+	
+
+@api_view(["POST"])
+def product_create(request):
+	serializer=ProductSerializer(data=request.POST)
+	if serializer.is_valid():
+		serializer.save()
+		return Response(serializer.data)
+	return Response(serializer.errors)
+
+
+def meta_info(request):
+    data = {
+        "CONTENT_LENGTH": request.META.get("CONTENT_LENGTH", "Not Provided"),
+        "CONTENT_TYPE": request.META.get("CONTENT_TYPE", "Not Provided"),
+        "HTTP_ACCEPT": request.META.get("HTTP_ACCEPT", "Not Provided"),
+        "HTTP_ACCEPT_ENCODING": request.META.get("HTTP_ACCEPT_ENCODING", "Not Provided"),
+        "HTTP_ACCEPT_LANGUAGE": request.META.get("HTTP_ACCEPT_LANGUAGE", "Not Provided"),
+        "HTTP_HOST": request.META.get("HTTP_HOST", "Not Provided"),
+        "HTTP_REFERER": request.META.get("HTTP_REFERER", "Not Provided"),
+        "HTTP_USER_AGENT": request.META.get("HTTP_USER_AGENT", "Not Provided"),
+        "QUERY_STRING": request.META.get("QUERY_STRING", "Not Provided"),
+        "REMOTE_ADDR": request.META.get("REMOTE_ADDR", "Not Provided"),
+        "REMOTE_HOST": request.META.get("REMOTE_HOST", "Not Provided"),
+        "REMOTE_USER": request.META.get("REMOTE_USER", "Not Provided"),
+        "REQUEST_METHOD": request.META.get("REQUEST_METHOD", "Not Provided"),
+        "SERVER_NAME": request.META.get("SERVER_NAME", "Not Provided"),
+        "SERVER_PORT": request.META.get("SERVER_PORT", "Not Provided"),
+    }
+    return JsonResponse(data)
