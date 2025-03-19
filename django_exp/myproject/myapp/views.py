@@ -16,6 +16,11 @@ class NameList(generics.ListCreateAPIView):
 	queryset = Name.objects.all()
 	serializer_class = NameSerializer
 
+
+class NameDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Name.objects.all()
+	serializer_class = NameSerializer
+
 def index(request):
 	return render(request, "index.html", {'name':"Subash"})
 
