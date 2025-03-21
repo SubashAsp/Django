@@ -68,3 +68,68 @@ import numpy as np
 
 # accessing both rows and columns
 # print (g1.loc[1, ['movie', 'director']])
+
+# adding a csv file
+# h = pd.read_csv("movie.csv")
+# # print (h)
+# print (h.head(2))
+
+# creating a csv file in pandas
+# i = {
+#     'movie': ['GOAT','GBU','DRAGON'],
+#     'actor': ['Vijay','Ajith','Pradeep'],
+#     'director': ['VP','AR','AM']
+# }
+# i1 = pd.DataFrame(i)
+# i1.to_csv('data.csv')
+# print (i1)
+# i1.to_csv('data.csv', index=False)
+# print (i1)
+# i1.to_csv('custom.csv', index=False, header=False)
+# print (i1)
+# i2 = {
+#     'movie': ['Kanguva', 'PS1'],
+#     'actor': ['Suriya', 'Karthi'],
+#     'director': ['Siva', 'Mani']
+# }
+# i3 = pd.DataFrame(i2)
+# i3.to_csv('data.csv', mode='a', index=False)
+# print (i3)
+
+# i4 = pd.read_csv('data.csv')
+# print (i4)
+
+# i3.to_csv('data.csv', mode='a', index=False, header=False)
+
+# i4 = pd.read_csv('data.csv')
+# print (i4)
+
+# existing_data = pd.read_csv('data.csv')
+# new_data = i3
+# combined_data = pd.concat([existing_data, new_data]).drop_duplicates()
+# combined_data.to_csv('data.csv', index=False, header=False)
+# print (combined_data)
+
+# i4 = {
+#     'movie': ['Cobra'],
+#     'actor': ['Vikram'],
+#     'director': ['ANM']
+# }
+# i5 = pd.DataFrame(i4)
+# i5.to_csv('data.csv', mode='a', index=False, header=False)
+# print (i5)
+
+j = {
+     'movie': ['GOAT', 'GBU', 'DRAGON'],
+     'actor': ['Vijay', 'Ajith', 'Pradeep'],
+     'director': ['VP', 'AR', 'AM']
+}
+j1 = pd.DataFrame(j)
+# print (j1)
+# print (j1.iloc[0])
+# print (j1.iloc[1:3])
+
+# print (j1.loc[0])
+# print (j1.loc[:,['actor']])
+# print (j1['actor'])
+print (j1[['actor']])
