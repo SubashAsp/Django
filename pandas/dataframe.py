@@ -119,12 +119,12 @@ import numpy as np
 # i5.to_csv('data.csv', mode='a', index=False, header=False)
 # print (i5)
 
-j = {
-     'movie': ['GOAT', 'GBU', 'DRAGON'],
-     'actor': ['Vijay', 'Ajith', 'Pradeep'],
-     'director': ['VP', 'AR', 'AM']
-}
-j1 = pd.DataFrame(j)
+# j = {
+#      'movie': ['GOAT', 'GBU', 'DRAGON'],
+#      'actor': ['Vijay', 'Ajith', 'Pradeep'],
+#      'director': ['VP', 'AR', 'AM']
+# }
+# j1 = pd.DataFrame(j)    
 # print (j1)
 # print (j1.iloc[0])
 # print (j1.iloc[1:3])
@@ -132,4 +132,37 @@ j1 = pd.DataFrame(j)
 # print (j1.loc[0])
 # print (j1.loc[:,['actor']])
 # print (j1['actor'])
-print (j1[['actor']])
+# print (j1[['actor']])
+
+# adding a new column
+# j1['md'] = ['U1', 'GVP', 'LJ']
+# print (j1)
+
+# k = pd.DataFrame({
+#     'name': ['subash', 'karthi', 'logu'],
+#     'age': [22, 30, 40]
+# })
+# k['group'] = ['young' if age < 30 else 'adult' for age in k['age']]
+# print (k) 
+
+# using alternative method
+# k['group'] = k['age'].apply(lambda age: 'young' if age <30 else 'adult')
+# print (k)
+
+# DataFrame.index
+l = {
+    'a': [10, 20, 30],
+    'b': [40, 50, 60]
+}
+l1 = pd.DataFrame(l)
+# print (l1.index)
+
+l2 = pd.DataFrame(l, index=(['a','b','c']))
+# print (l2.index)
+
+# DataFrame.columns
+# print (l1.columns)
+# print (l2.columns)
+
+# print (l1.dtypes)
+# l1.info()
