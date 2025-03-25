@@ -143,21 +143,21 @@ import numpy as np
 #     'age': [22, 30, 40]
 # })
 # k['group'] = ['young' if age < 30 else 'adult' for age in k['age']]
-# print (k) 
+# print (k)
 
 # using alternative method
 # k['group'] = k['age'].apply(lambda age: 'young' if age <30 else 'adult')
 # print (k)
 
 # DataFrame.index
-l = {
-    'a': [10, 20, 30],
-    'b': [40, 50, 60]
-}
-l1 = pd.DataFrame(l)
+# l = {
+#     'a': [10, 20, 30],
+#     'b': [40, 50, 60]
+# }
+# l1 = pd.DataFrame(l)
 # print (l1.index)
 
-l2 = pd.DataFrame(l, index=(['a','b','c']))
+# l2 = pd.DataFrame(l, index=(['a','b','c']))
 # print (l2.index)
 
 # DataFrame.columns
@@ -166,3 +166,25 @@ l2 = pd.DataFrame(l, index=(['a','b','c']))
 
 # print (l1.dtypes)
 # l1.info()
+
+m = pd.DataFrame({
+    'area': ['aa', 'bb', 'cc', 'dd'],
+    'pin': [22, 33, 11, 44],
+    'ph': [421, 422, 423, 424]
+})
+# m1 = m.select_dtypes(include=['int64'])
+# print (m1)
+# print (m.select_dtypes(include=['object']))
+
+# print (m.values)
+# print (m.values)
+
+n = ([1, 3, 5, 6, 2])
+# print (n)
+# print (m.sort_values('pin'))
+# n1=pd.DataFrame(n, index=['a', 'b', 'c', 'd', 'e'])
+# print (n1)
+# print (n1.reset_index())
+n1 = pd.DataFrame(n)
+# print (n1.axes)
+# print (m.axes)
