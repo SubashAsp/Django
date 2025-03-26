@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from datetime import datetime
 
 # a=[1, 2, 3, 4, 5]
 # a1=pd.array(a)
@@ -130,3 +131,91 @@ d=pd.array([1, np.nan, 3, None, 5])
 # weekly range
 # d4=pd.date_range(start='2025-03-24', periods=4, freq="W")
 # print (d4)
+
+# Timedelta
+# date1=pd.to_datetime('2025-03-24')
+# date2=pd.to_datetime('2025-03-10')
+# difference between two dates
+# delta=date1-date2
+# print (delta)
+
+# arithemetic operations
+# add & sub time
+# print (date1+pd.Timedelta(weeks=1))
+# print (date1-pd.Timedelta(weeks=1))
+# print (date1+pd.Timedelta(days=3))
+# print (date1-pd.Timedelta(days=1))
+# print (date1+pd.Timedelta(hours=24))
+# print (date1-pd.Timedelta(hours=36))
+# print (date1+pd.Timedelta(hours=12))
+# print (date1-pd.Timedelta(hours=12))
+# print (date1+pd.Timedelta(hours=12, minutes=30))
+# print (date1-pd.Timedelta(hours=12, minutes=30))
+# print (date1+pd.Timedelta(seconds=59))
+# print (date1-pd.Timedelta(seconds=59))
+# print (date1+pd.Timedelta(milliseconds=2000))
+# print (date1-pd.Timedelta(milliseconds=2000))
+# print (date1+pd.Timedelta(microseconds=200000))
+# print (date1-pd.Timedelta(microseconds=200000))
+
+# multiplication
+# date=pd.Timedelta(days=10)
+# print (date)
+# date1=date*2
+# print (date1)
+
+# division
+# date=pd.Timedelta(days=20)
+# date1=date/2
+# print (date1)
+# date1=date/3
+# print (date1)
+
+# floor division
+# date=pd.Timedelta(days=5)
+# date1=date//2
+# print (date1)
+
+# modulus
+# date=pd.Timedelta(days=17)
+# date1=pd.Timedelta(days=3)
+# date2=date%date1
+# print (date2)
+
+# converting datetime into string
+# dt=datetime.now()
+
+# alter method
+# dt=datetime(2025, 3, 25)
+# date=dt.strftime('%d-%m-%Y')
+# print (date)
+
+# converting microsecond to millisecond
+# date=datetime(2025, 3, 25, 12, 30, 20, 500000)
+# milli=date.microsecond//1000
+# print (milli)
+# formate=date.strftime(f'%Y-%m-%d %H:%M:%S.{milli:03d}')
+# print (formate)
+
+# handling missing and invalid dates
+# date=pd.Series([pd.Timestamp('2025-03-24'), pd.NaT, '2025-03-25'])
+# print (date)
+# print (date.isna())
+
+# using datetime in a dataframe
+# date={
+#     'date': pd.date_range(start='2025-03-25', periods=5, freq="D"),
+#     'Sales': [100, 200, 150, 300, 250]
+# }
+# dataframe=pd.DataFrame(date)
+# print (dataframe)
+
+# creating a array from dictionary
+# e={
+#     'one': [1, 2, 3, 4],
+#     'two': [5, 6, 7, 8]
+# }
+# e1=pd.array(e['one'])
+# print (e1)
+# e1=pd.array(e['two'], dtype='Float64')
+# print (e1)
