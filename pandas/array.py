@@ -219,3 +219,7 @@ d=pd.array([1, np.nan, 3, None, 5])
 # print (e1)
 # e1=pd.array(e['two'], dtype='Float64')
 # print (e1)
+
+numbers = pd.DataFrame({'A': [1, 2, 3, 4, 5]})
+numbers['B'] = numbers['A'] * 2  
+print(numbers)
