@@ -78,6 +78,6 @@ sc=spark.sparkContext
 # print (first_num)
 
 # take()
-rdd = sc.parallelize([10, 20, 30, 40, 50])
-top_3 = rdd.take(3)
-print(top_3)  
+# rdd = sc.parallelize([10, 20, 30, 40, 50])
+# top_3 = rdd.take(3)
+# print(top_3)  
